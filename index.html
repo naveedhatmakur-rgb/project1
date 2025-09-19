@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Interest Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    input, button { margin: 10px 0; padding: 8px; width: 200px; }
+    #result { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>💰 Simple Interest Calculator</h2>
+  <label>Principal (₹):</label><br>
+  <input type="number" id="principal"><br>
+
+  <label>Rate (% per annum):</label><br>
+  <input type="number" id="rate"><br>
+
+  <label>Time (years):</label><br>
+  <input type="number" id="time"><br>
+
+  <button onclick="calculateInterest()">Calculate Interest</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculateInterest() {
+      const P = parseFloat(document.getElementById("principal").value);
+      const R = parseFloat(document.getElementById("rate").value);
+      const T = parseFloat(document.getElementById("time").value);
+
+      if (isNaN(P) || isNaN(R) || isNaN(T)) {
+        document.getElementById("result").innerText = "Please enter valid numbers.";
+        return;
+      }
+
+      const SI = (P * R * T) / 100;
+      document.getElementById("result").innerText = `Simple Interest: ₹${SI.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
